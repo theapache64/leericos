@@ -8,10 +8,10 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    var leericos: Leericos? = null
-    var player: MediaPlayer? = null
-    var timer: Timer? = null
-    var tvLyric: TextView? = null
+    private var leericos: Leericos? = null
+    private var player: MediaPlayer? = null
+    private var timer: Timer? = null
+    private var tvLyric: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +49,9 @@ class MainActivity : AppCompatActivity() {
         // Play music
         this.player = MediaPlayer.create(this, R.raw.someonelikeyou)
         this.player!!.start()
+        this.player!!.setOnCompletionListener {
+            finish()
+        }
         startTimer()
     }
 
