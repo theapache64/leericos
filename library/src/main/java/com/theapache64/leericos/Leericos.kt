@@ -83,16 +83,20 @@ class Leericos private constructor(
             val timeMatcher = Pattern.compile(TIME_REGEX).matcher(time)
 
             while (timeMatcher.find()) {
+
                 val min = timeMatcher.group(1)
                 val sec = timeMatcher.group(2)
                 val mil = timeMatcher.group(3)
                 val lrc = LRCLine()
+                lrc.time = (java.lang.Long.parseLong(min) * 60 * 1000 + java.lang.Long.parseLong(sec) * 1000
+                        + java.lang.Long.parseLong(mil) * 10)
                 if (content != null && content.isNotEmpty()) {
-                    lrc.time = (java.lang.Long.parseLong(min) * 60 * 1000 + java.lang.Long.parseLong(sec) * 1000
-                            + java.lang.Long.parseLong(mil) * 10)
                     lrc.text = content
-                    lrcs.add(lrc)
+                } else {
+                    lrc.text = "(music)"
                 }
+
+                lrcs.add(lrc)
             }
             return lrcs
         }
