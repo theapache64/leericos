@@ -11,8 +11,8 @@
 
     <com.theapache64.leericos.CustomTextView
         android:id="@+id/tv_lyric"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:gravity="center"
         android:textColor="#120505"
         android:textSize="50sp"
@@ -22,5 +22,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Yeyyy!!!!" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
