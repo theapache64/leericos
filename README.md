@@ -1,3 +1,5 @@
+![poster](https://dummyimage.com/800x400/000/fff.png&text=leericos)
+
 # leericos
 An android library to parse LRC files easily.
 
