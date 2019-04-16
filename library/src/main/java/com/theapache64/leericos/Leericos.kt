@@ -45,7 +45,7 @@ class Leericos private constructor(
     fun getPosition(time: Long): Int {
         var linePos = 0
         for (i in 0 until lrcs.size) {
-            val lrc = lrcs.get(i)
+            val lrc = lrcs[i]
             if (time >= lrc.time) {
                 if (i == lrcs.size - 1) {
                     linePos = lrcs.size - 1
@@ -60,8 +60,8 @@ class Leericos private constructor(
 
     companion object {
 
-        private val LINE_REGEX = "((\\[\\d{2}:\\d{2}\\.\\d{2}])+)(.*)"
-        private val TIME_REGEX = "\\[(\\d{2}):(\\d{2})\\.(\\d{2})]"
+        private const val LINE_REGEX = "((\\[\\d{2}:\\d{2}\\.\\d{2}])+)(.*)"
+        private const val TIME_REGEX = "\\[(\\d{2}):(\\d{2})\\.(\\d{2})]"
 
         /**
          * Parses LRC line from passed string

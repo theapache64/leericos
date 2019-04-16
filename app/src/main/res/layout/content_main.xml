@@ -9,12 +9,12 @@
     tools:showIn="@layout/activity_main">
 
 
-    <TextView
+    <com.theapache64.leericos.CustomTextView
         android:id="@+id/tv_lyric"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textColor="@android:color/black"
+        android:textColor="#120505"
         android:textSize="50sp"
         app:fontFamily="@font/caveat_brush"
         app:layout_constraintBottom_toBottomOf="parent"

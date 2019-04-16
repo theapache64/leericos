@@ -52,6 +52,7 @@ class MainActivity : AppCompatActivity() {
         this.player!!.setOnCompletionListener {
             finish()
         }
+
         startTimer()
     }
 
