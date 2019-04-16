@@ -45,7 +45,7 @@ class Leericos private constructor(
     fun getPosition(time: Long): Int {
         var linePos = 0
         for (i in 0 until lrcs.size) {
-            val lrc = lrcs.get(i)
+            val lrc = lrcs[i]
             if (time >= lrc.time) {
                 if (i == lrcs.size - 1) {
                     linePos = lrcs.size - 1
@@ -60,8 +60,8 @@ class Leericos private constructor(
 
     companion object {
 
-        private val LINE_REGEX = "((\\[\\d{2}:\\d{2}\\.\\d{2}])+)(.*)"
-        private val TIME_REGEX = "\\[(\\d{2}):(\\d{2})\\.(\\d{2})]"
+        private const val LINE_REGEX = "((\\[\\d{2}:\\d{2}\\.\\d{2}])+)(.*)"
+        private const val TIME_REGEX = "\\[(\\d{2}):(\\d{2})\\.(\\d{2})]"
 
         /**
          * Parses LRC line from passed string
@@ -83,16 +83,20 @@ class Leericos private constructor(
             val timeMatcher = Pattern.compile(TIME_REGEX).matcher(time)
 
             while (timeMatcher.find()) {
+
                 val min = timeMatcher.group(1)
                 val sec = timeMatcher.group(2)
                 val mil = timeMatcher.group(3)
                 val lrc = LRCLine()
+                lrc.time = (java.lang.Long.parseLong(min) * 60 * 1000 + java.lang.Long.parseLong(sec) * 1000
+                        + java.lang.Long.parseLong(mil) * 10)
                 if (content != null && content.isNotEmpty()) {
-                    lrc.time = (java.lang.Long.parseLong(min) * 60 * 1000 + java.lang.Long.parseLong(sec) * 1000
-                            + java.lang.Long.parseLong(mil) * 10)
                     lrc.text = content
-                    lrcs.add(lrc)
+                } else {
+                    lrc.text = "(music)"
                 }
+
+                lrcs.add(lrc)
             }
             return lrcs
         }

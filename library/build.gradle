@@ -1,14 +1,38 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'leericos'
+
+    publishedGroupId = 'com.theapache64.leericos'
+    libraryName = 'leericos'
+    artifact = 'leericos'
+
+    libraryDescription = 'An android library to parse LRC files easily.'
+
+    siteUrl = 'https://github.com/theapache64/leericos'
+    gitUrl = 'https://github.com/theapache64/leericos.git'
+
+    libraryVersion = leericos_version_name
+
+    developerId = 'theapache64'
+    developerName = 'theapache64'
+    developerEmail = 'theapache64@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
 android {
-    compileSdkVersion 28
+    compileSdkVersion compile_sdk_version
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion min_sdk_version
+        targetSdkVersion target_sdk_version
+        versionCode leericos_version_code
+        versionName leericos_version_name
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
@@ -34,3 +58,6 @@ dependencies {
 repositories {
     mavenCentral()
 }
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
