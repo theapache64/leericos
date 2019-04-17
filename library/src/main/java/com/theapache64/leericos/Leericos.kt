@@ -93,7 +93,7 @@ class Leericos private constructor(
                 if (content != null && content.isNotEmpty()) {
                     lrc.text = content
                 } else {
-                    lrc.text = "(music)"
+                    lrc.text = "..."
                 }
 
                 lrcs.add(lrc)

@@ -16,7 +16,7 @@ class CustomTextView(context: Context?, attrs: AttributeSet?) : AppCompatTextVie
 
     var radius = 0f
     override fun onDraw(c: Canvas?) {
-        if (text == "(music)") {
+        if (text == "...") {
             c?.let { canvas ->
                 val cx = width / 2.toFloat()
                 val cy = height / 2.toFloat()
