@@ -8,16 +8,7 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <com.theapache64.leericos.ShootingStarView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <com.theapache64.leericos.CustomTextView
+    <TextView
         android:id="@+id/tv_lyric"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -30,6 +21,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Yeyyy!!!!" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

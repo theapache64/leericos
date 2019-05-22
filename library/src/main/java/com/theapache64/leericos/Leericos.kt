@@ -62,6 +62,7 @@ class Leericos private constructor(
 
         private const val LINE_REGEX = "((\\[\\d{2}:\\d{2}\\.\\d{2}])+)(.*)"
         private const val TIME_REGEX = "\\[(\\d{2}):(\\d{2})\\.(\\d{2})]"
+        const val MUSIC_LABEL = "(MUSIC)"
 
         /**
          * Parses LRC line from passed string
@@ -93,7 +94,7 @@ class Leericos private constructor(
                 if (content != null && content.isNotEmpty()) {
                     lrc.text = content
                 } else {
-                    lrc.text = "..."
+                    lrc.text = MUSIC_LABEL
                 }
 
                 lrcs.add(lrc)
@@ -111,7 +112,6 @@ class Leericos private constructor(
         /**
          * Get Leericos instance from String
          */
-        @Suppress("MemberVisibilityCanBePrivate")
         fun fromString(data: String): Leericos {
             return Leericos(data)
         }
@@ -119,7 +119,6 @@ class Leericos private constructor(
         /**
          * Get Leericos instance from InputStream
          */
-        @Suppress("MemberVisibilityCanBePrivate")
         fun fromInputStream(inputStream: InputStream): Leericos {
             return fromString(inputStream.bufferedReader().use { it.readText() })
         }
@@ -131,7 +130,6 @@ class Leericos private constructor(
         fun fromAssets(context: Context, path: String): Leericos {
             return fromInputStream(context.assets.open(path))
         }
-
 
     }
 }
