@@ -5,11 +5,11 @@ apply plugin: 'kotlin-android'
 android {
     compileSdkVersion compile_sdk_version
     defaultConfig {
-        applicationId "com.theapache64.leericos"
+        applicationId "com.theapache64.leericosexample"
         minSdkVersion min_sdk_version
         targetSdkVersion target_sdk_version
         versionCode 1
-        versionName "0.0.1-alpha01"
+        versionName "$leericos_version_name-example"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -30,7 +30,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0-alpha03'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-alpha03'
-    implementation project(path: ':library')
+    implementation project(path: ':leericos')
 
     implementation 'com.theapache64.twinkill:logger:0.0.1-alpha01'
 }

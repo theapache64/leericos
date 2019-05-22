@@ -1,10 +1,11 @@
-package com.theapache64.leericos
+package com.theapache64.leericosexample
 
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.theapache64.leericos.Leericos
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
